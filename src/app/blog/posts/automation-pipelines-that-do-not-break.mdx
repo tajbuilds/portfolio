@@ -1,0 +1,28 @@
+---
+title: "Automation pipelines that do not break"
+subtitle: "Designing workflows for change, not just success"
+publishedAt: "2025-11-10"
+summary: "How to design automation workflows that stay reliable as inputs, vendors, and data formats evolve."
+image: "/images/projects/project-01/cover-03.jpg"
+images:
+  - "/images/projects/project-01/cover-03.jpg"
+team:
+  - name: "Taj S"
+    role: "Solutions Architect"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://linkedin.com/in/taj-tajinder"
+---
+
+## The real failure mode
+
+Automation does not fail at the happy path. It fails when suppliers change schemas, when payloads are missing fields, or when an upstream service times out.
+
+## What works in practice
+
+- Validate inputs early and log a clear reason on failure.
+- Store raw payloads for replay and debugging.
+- Separate detection from notification to avoid alert fatigue.
+
+## A simple mindset
+
+Assume every integration will change. Design for graceful degradation instead of brittle success.

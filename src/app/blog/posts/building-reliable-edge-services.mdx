@@ -1,0 +1,28 @@
+---
+title: "Building reliable edge services"
+subtitle: "Patterns for caching, security, and safe rollouts"
+publishedAt: "2025-12-02"
+summary: "Practical patterns for running Cloudflare Workers in production with safe defaults and simple rollouts."
+image: "/images/projects/project-01/cover-01.jpg"
+images:
+  - "/images/projects/project-01/cover-01.jpg"
+team:
+  - name: "Taj S"
+    role: "Solutions Architect"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://linkedin.com/in/taj-tajinder"
+---
+
+## Why edge services fail
+
+Most edge services break because of inconsistent cache rules, weak validation, or hidden coupling to origin behavior.
+
+## A practical checklist
+
+- Treat cache policy as configuration, not code.
+- Validate payloads at the edge before forwarding.
+- Use staged rollouts with clear observability.
+
+## What to measure
+
+Latency, origin error rates, and cache hit ratio tell the real story. Keep metrics simple and review them after every change.
