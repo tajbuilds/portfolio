@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { Fade, Flex, Line, Row, ToggleButton, SmartLink } from "@once-ui-system/core";
 
 import { routes, display, person, about, blog, work, gallery } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
@@ -87,82 +87,80 @@ export const Header = () => {
           >
             <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
+                <SmartLink href="/" aria-label="Home">
+                  <ToggleButton prefixIcon="home" selected={pathname === "/"} />
+                </SmartLink>
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
               {routes["/about"] && (
                 <>
                   <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="person"
-                      href="/about"
-                      label={about.label}
-                      selected={pathname === "/about"}
-                    />
+                    <SmartLink href="/about" aria-label={about.label}>
+                      <ToggleButton
+                        prefixIcon="person"
+                        label={about.label}
+                        selected={pathname === "/about"}
+                      />
+                    </SmartLink>
                   </Row>
                   <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="person"
-                      href="/about"
-                      selected={pathname === "/about"}
-                    />
+                    <SmartLink href="/about" aria-label={about.label}>
+                      <ToggleButton prefixIcon="person" selected={pathname === "/about"} />
+                    </SmartLink>
                   </Row>
                 </>
               )}
               {routes["/work"] && (
                 <>
                   <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="grid"
-                      href="/work"
-                      label={work.label}
-                      selected={pathname.startsWith("/work")}
-                    />
+                    <SmartLink href="/work" aria-label={work.label}>
+                      <ToggleButton
+                        prefixIcon="grid"
+                        label={work.label}
+                        selected={pathname.startsWith("/work")}
+                      />
+                    </SmartLink>
                   </Row>
                   <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="grid"
-                      href="/work"
-                      selected={pathname.startsWith("/work")}
-                    />
+                    <SmartLink href="/work" aria-label={work.label}>
+                      <ToggleButton prefixIcon="grid" selected={pathname.startsWith("/work")} />
+                    </SmartLink>
                   </Row>
                 </>
               )}
               {routes["/blog"] && (
                 <>
                   <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="book"
-                      href="/blog"
-                      label={blog.label}
-                      selected={pathname.startsWith("/blog")}
-                    />
+                    <SmartLink href="/blog" aria-label={blog.label}>
+                      <ToggleButton
+                        prefixIcon="book"
+                        label={blog.label}
+                        selected={pathname.startsWith("/blog")}
+                      />
+                    </SmartLink>
                   </Row>
                   <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="book"
-                      href="/blog"
-                      selected={pathname.startsWith("/blog")}
-                    />
+                    <SmartLink href="/blog" aria-label={blog.label}>
+                      <ToggleButton prefixIcon="book" selected={pathname.startsWith("/blog")} />
+                    </SmartLink>
                   </Row>
                 </>
               )}
               {routes["/gallery"] && (
                 <>
                   <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      label={gallery.label}
-                      selected={pathname.startsWith("/gallery")}
-                    />
+                    <SmartLink href="/gallery" aria-label={gallery.label}>
+                      <ToggleButton
+                        prefixIcon="gallery"
+                        label={gallery.label}
+                        selected={pathname.startsWith("/gallery")}
+                      />
+                    </SmartLink>
                   </Row>
                   <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      selected={pathname.startsWith("/gallery")}
-                    />
+                    <SmartLink href="/gallery" aria-label={gallery.label}>
+                      <ToggleButton prefixIcon="gallery" selected={pathname.startsWith("/gallery")} />
+                    </SmartLink>
                   </Row>
                 </>
               )}

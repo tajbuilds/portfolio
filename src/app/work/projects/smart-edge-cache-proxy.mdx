@@ -1,31 +1,37 @@
 ---
 title: "Smart Edge Cache Proxy"
 publishedAt: "2025-12-12"
-summary: "Configurable Cloudflare Worker applying KV-driven cache rules, TTL bands, and optional R2 persistence."
+summary: "A Cloudflare Worker-based edge gateway that normalizes API requests, applies policy-driven caching, and improves performance and resilience for JSON APIs at scale."
 images:
   - "/images/projects/project-01/cover-01.jpg"
   - "/images/projects/project-01/cover-02.jpg"
 team:
   - name: "Taj S"
     role: "Solutions Architect"
-    avatar: "/images/avatar.jpg"
+    avatar: "/images/profilepic.jpg"
     linkedIn: "https://linkedin.com/in/taj-tajinder"
 ---
 
 ## Overview
 
-A Cloudflare Worker that acts as an edge proxy with fine-grained cache control. Rules are stored in KV, enabling quick tuning without redeploys, with optional R2 persistence for large assets.
+A Cloudflare Worker-based edge gateway that normalizes API requests, applies policy-driven caching, and improves performance and resilience for JSON APIs at scale.
 
 ## Highlights
 
-- KV-driven route rules with per-path TTL bands and bypass conditions.
-- Safer defaults for cache headers and stale-while-revalidate strategies.
-- Optional R2 storage for edge-friendly persistence and cost control.
+- Canonical request normalization to maximize cache hit ratio and prevent cache fragmentation.
+- Policy-driven caching with dynamic TTL decisions based on response characteristics and data freshness models.
+- Multi-layer cache strategy (edge cache with optional durable storage) to reduce origin load and latency.
+- Stale-on-error behavior to continue serving data during upstream failures.
+- Observability built in: cache outcome classification, traceability, and performance metrics.
+- Operational controls for bypassing cache and targeted purging during debugging or incidents.
 
 ## Tech
 
-Cloudflare Workers, KV, R2, JavaScript.
+Cloudflare Workers, Cache API, KV, R2 (optional), JavaScript (ES modules), Cloudflare Analytics Engine.
 
 ## Outcome
 
-Reduced origin load and delivered consistent edge performance while keeping configuration simple to update.
+- Improved API response times and consistency at the edge.
+- Reduced origin traffic and upstream dependency during peak load.
+- Increased resilience by serving cached or stale data during outages.
+- Enabled scalable behavior changes through configuration rather than redeployments.
